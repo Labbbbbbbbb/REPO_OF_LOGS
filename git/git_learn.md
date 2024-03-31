@@ -16,6 +16,20 @@ $git push -u origin main
 #用于将本地分支 main 的更新推送到远程分支 origin/main。在这个命令中，-u 参数指定了推送的分支，origin/main 是远程分支的名称。#
 ```
 
+
+如果出现
+
+```
+! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/Labbbbbbbbb/REPO_OF_LOGS.git'
+
+```
+
+可能是因为在push之前忘了pull ，使用 ` git pull origin main --allow-unrelated-histories`
+
+再 `push` 即可
+
+
 ### 回退
 
 ```
@@ -35,7 +49,6 @@ git checkout -b <branch_name>
 ```
 git checkout main
 ```
-
 
 ### 融合分支
 
