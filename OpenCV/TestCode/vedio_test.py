@@ -5,7 +5,7 @@
 import cv2
 import numpy as np
 
-cap = cv2.VideoCapture(0)       #创建对象，索引号为0
+cap = cv2.VideoCapture(4)       #创建对象，索引号为0
 
 while cap.isOpened() == False:
     cap.open()

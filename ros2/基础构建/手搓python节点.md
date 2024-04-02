@@ -103,7 +103,7 @@ entry_points={
     },
 ```
 
-加入路径配置：
+加入路径配置：注意此处 `lisi_node` 是节点名字，`village_li` 是包的名字，`lisi` 是 `python` 文件的名字
 
 ```
 entry_points={
@@ -210,3 +210,38 @@ def main(args=None):
 ```
 
 Done!	如果是初始编写，也不要忘记在setup.py里指路和source！
+
+
+## 补充遇到的一些问题：
+
+删除自定义的功能包并新建之后，在 `colcon build` 时会遇到
+
+```
+(base) zyt@zyt-ThinkBook-14-G4-IAP:~/ros2_workspace/dev_opencv02$ colcon build
+[0.503s] WARNING:colcon.colcon_core.prefix_path.colcon:The path '/home/zyt/ros2_workspace/dev_opencv01/install' in the environment variable COLCON_PREFIX_PATH doesn't exist
+[0.503s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/zyt/ros2_workspace/dev_opencv01/install/Detection' in the environment variable AMENT_PREFIX_PATH doesn't exist
+```
+
+(其中显示 `doesnt exist` 的都是之前删除的功能包里的) 这说明单单删除功能包文件是不够的，还有一些环境变量没有删除干净
+
+在历史编译中，已经删除的包被包含进过 `AMENT_PREFIX_PATH` 和 `COLCON_PREFIX_PATH` 中，可以使用命令：
+
+```
+printenv AMENT_PREFIX_PATH
+```
+
+```
+printenv COLCON_PREFIX_PATH
+```
+
+查看这两个环境变量的内容
+
+![1712039474457](image/手搓python节点/1712039474457.png)
+
+![1712039500991](image/手搓python节点/1712039500991.png)
+
+发现的确是有之前的包没清干净
+
+直接用 `AMENT_PREFIX_PATH= `和 `COLCON_PREFIX_PATH= `来修改变量即可
+
+如果这两个变量里除了无效路径没有其他内容，就直接输入以上句子即可，如果还有其他有效路径，就在 `=` 之后写上删除了无效路径之后余下的变量
