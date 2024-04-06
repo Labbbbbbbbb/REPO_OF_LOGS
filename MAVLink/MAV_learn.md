@@ -21,7 +21,7 @@ cd mavlink
 python3 -m pip install -r pymavlink/requirements.txt
 ```
 
-然后输入 `python mavgenerate.py`
+然后输入 `python mavgenerate.py	` (注：此电脑保存该库的位置是"D:\_电控_\MAVLink_lib\lib\mavlink")
 
 就可以见到这个小小的图形化窗口。
 
