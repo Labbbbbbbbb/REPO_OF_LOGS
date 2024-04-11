@@ -61,3 +61,19 @@ git checkout main
 此时可以自行选择要采用哪一方的更改，或者共同比较更改之后再写入
 
 注意这里的merge只是会将所选择的改动写入当前分支并成为新的 `uncommitted changes`，并不会影响那个 <`another_branch_name`>，后续也仍然可以通过 `checkout`来到那个分支
+
+
+
+### 子模块submodule
+
+在git仓库中添加内含git仓库的文件时会出现：
+
+![image-20240411232030153](image/git_learn/image-20240411232030153.png)
+
+git允许子模块的嵌套，但是如果是误加的话可以按它的指示删掉
+
+```
+ git rm --cached CODE/WTR_Chassis/WTR_Chassis -f
+```
+
+其中中间的路径是要删除的文件
