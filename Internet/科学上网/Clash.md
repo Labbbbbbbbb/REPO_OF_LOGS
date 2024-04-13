@@ -17,6 +17,32 @@ clash官网：https://www.clash.la/releases/
 
 ![1708925791325](image/Clash/1708925791325.png)
 
+接下来配置环境变量让clash可以在全局打开：
+
+为防止命名格式不合理，先把里面那一层文件夹改名为`Clash-for-linux`
+
+```
+sudo cp -ar Clash-for-linux /opt
+sudo geidt ~/.bashrc
+```
+
+在`.bashrc`中添加
+
+```
+#Clash Env
+export PATH=$PATH:/opt/Clash-for-linux
+```
+
+然后保存退出
+
+```
+source ~/.bashrc
+```
+
+以后直接输入`cfw`即可打开Clash啦
+
+
+
 
 ## 配置
 
