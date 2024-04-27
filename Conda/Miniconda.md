@@ -141,6 +141,39 @@ conda remove -n env_name pkg_name
 
 查看已经安装的包
 
-```text
+```etext
 conda list
 ```
+
+
+
+## Conda in RaspberryPi
+
+树莓派并不是64bits架构，不能使用以上的安装包，应该用arch的
+
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-py37_4.9.2-Linux-aarch64.sh
+```
+
+然后运行安装包(不要加sudo，不然处理权限太麻烦了)
+
+```
+bash  Miniconda3-py37_4.9.2-Linux-aarch64.sh
+```
+
+然后安装程序会自动把conda下载到`~/miniconda3`文件夹里
+
+然后就可以把安装包踢掉了
+
+```
+rm Miniconda3-py37_4.9.2-Linux-aarch64.sh 
+```
+
+添加环境变量：(记得改路径！)
+
+```
+echo 'export PATH="/home/zyt-rasp/miniconda3/bin:$PATH"' >> ~/.bashrc
+```
+
+然后`source ~/.bashrc`即可
+
