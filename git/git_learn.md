@@ -29,6 +29,31 @@ error: failed to push some refs to 'https://github.com/Labbbbbbbbb/REPO_OF_LOGS.
 
 再 `push` 即可
 
+`push`的时候可能会出现怎么都连不上网的问题，先检查代理有没有开，如果已经开了还是连接不上`github`服务器，参考：
+
+![image-20240427192948521](C:/Users/86189/AppData/Roaming/Typora/typora-user-images/image-20240427192948521.png)
+
+查看自己的代理端口号，然后更改git的端口配置
+
+```
+git config --global http.proxy http://127.0.0.1:7890 
+git config --global https.proxy http://127.0.0.1:7890
+```
+
+done.
+
+补充：：
+
+```bash
+# 取消代理
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+# 查看代理
+git config --global --get http.proxy
+git config --global --get https.proxy
+```
+
 
 ### 回退
 
@@ -42,13 +67,31 @@ git checkout <git_log_ID>
 git checkout -b <branch_name>
 ```
 
-否则新做的修改不会保存
+否则新做的修改不会保存。并且保险起见，最好在每次工作完成后都push一下，以防出现一些令人b溃的事情。
 
 一旦回退几个版本之间的关系就变成了分支与分支之间的关系，如果回退到过去的某个节点后又想重新回到原先的进度，使用命令
 
 ```
 git checkout main
 ```
+
+**如果遇到报错：**
+
+```
+The following untracked working tree files would be overwritten by checkout:balabala
+```
+
+对于那些在当前分支存在而目标分支不存在的文件，如果你想保存它们---->使用`git stash`暂存文件，切换之后使用`git stash pop`恢复暂存的工作
+
+如果你已经不需要这些文件了，就直接让git复写好了--->
+
+```
+git checkout -f <branch>
+```
+
+
+
+
 
 ### 融合分支
 
