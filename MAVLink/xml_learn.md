@@ -1,3 +1,7 @@
+https://www.runoob.com/xml/xml-elements.html
+
+
+
 消息内容[定义于与之关联的xml 文件中](https://mavlink.io/zh/messages/)。 每个xml文件对应一个特定的MAVLink系统，并为该系统定义了专属的消息集（亦被称之为“语支dialect”）。 *大部分* 地面站和自动驾驶仪所采用的“通用消息集”定义于 [common.xml](https://mavlink.io/zh/messages/common.html)中 (大多数“语支”均是基于“通用消息集“*构建* 的：即，大多数“语支”所对应的xml文件里，均包含了common.xml) 。
 
 参考：
