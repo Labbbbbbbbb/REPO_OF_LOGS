@@ -84,14 +84,21 @@ python3 -m pip install -r pymavlink/requirements.txt
 
 用上述方法同样生成python的文件
 
-然后，克隆这个仓库[ArduPilot/pymavlink at f4e45e4ce2ecb84a9d6aaf1cbed84e2fe1535312 (github.com)](https://github.com/ArduPilot/pymavlink/tree/f4e45e4ce2ecb84a9d6aaf1cbed84e2fe1535312)
+然后，克隆这个仓库https://github.com/ArduPilot/mavlink.git
 
-下载到系统后把刚刚生成的.py文件放在`dialects`文件夹的`v10`或`v20`中，具体是什么看你用的是哪个版本
+```
+git clone https://github.com/ArduPilot/mavlink.git --recursive
+```
+
+可以看到里面有一个子仓库`pymavlink`,打开它
+
+然后把刚刚生成的.py文件放在`dialects`文件夹的`v10`或`v20`中，具体是什么看你用的是哪个版本
 
 然后回到仓库的根目录，运行python安装程序
 
 ```
-python setup.py install --user
+python setup.py build
+python setup.py install
 ```
 
 [python实现自定义MavlinK协议消息发送_no module named 'pymavlink-CSDN博客](https://blog.csdn.net/qq_28506941/article/details/106708785)
